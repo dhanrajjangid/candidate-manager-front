@@ -19,7 +19,6 @@ const Chat = () => {
 
   const selectUser = (user) => {
     setCurrentChatUser(user);
-    fetchChatHistory(user._id);
   };
 
   const onBack = () => {
