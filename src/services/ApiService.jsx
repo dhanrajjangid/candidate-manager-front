@@ -3,9 +3,10 @@ import { toast } from "react-toastify";
 import store from "@/redux/store";
 import { setLoading } from "@/redux/slices/loadingSlice"; // Import the setLoading action
 
-// const API_BASE_URL = "https://my-squad-two.vercel.app/"; // Your API base URL
-const API_BASE_URL = 'http://localhost:8000'; // Your API base URL
-// const API_BASE_URL = 'http://192.168.0.107:8000'; // Your API base URL
+// const API_BASE_URL = "https://my-squad-two.vercel.app/"; 
+// const API_BASE_URL = "https://candidate-backend.vercel.app/"
+const API_BASE_URL = 'http://localhost:8000'; 
+// const API_BASE_URL = 'http://192.168.0.107:8000'; 
 
 const apiService = axios.create({
   baseURL: API_BASE_URL,
