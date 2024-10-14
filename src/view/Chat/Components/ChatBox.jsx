@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import {
   ChatContainer,
@@ -18,6 +18,7 @@ import { socket } from "../socket";
 
 const ChatBox = ({ currentChatUser, onBack }) => {
   const player_id = JSON.parse(localStorage.getItem("user"))?.player_id;
+  const endOfMessagesRef = useRef(null);
 
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState("");
@@ -35,6 +36,12 @@ const ChatBox = ({ currentChatUser, onBack }) => {
 
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (endOfMessagesRef?.current) {
+      endOfMessagesRef?.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   useEffect(() => {
     if (socket?.on) {
@@ -131,6 +138,7 @@ const ChatBox = ({ currentChatUser, onBack }) => {
             acc.push(
               <>
                 <Message
+                  ref={endOfMessagesRef}
                   key={index}
                   isSender={(msg.senderId || msg.sender) === player_id}
                 >

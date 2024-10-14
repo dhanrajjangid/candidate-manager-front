@@ -7,6 +7,7 @@ export const AppContainer = styled.div`
   max-height: 70vh;
   width: 380px;
   box-sizing: border-box;
+  
 
   @media (max-width: 768px) {
     min-height: 80vh;
@@ -64,16 +65,13 @@ export const UserName = styled.div`
 
 // Chat container (right panel)
 export const ChatContainer = styled.div`
-  background-color: #6d6de7;
+  background-color: #f2f6f9;
   width: 100%;
-
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   padding: 5px;
-  color: white;
   box-sizing: border-box;
-  
 `;
 
 // Chat header (name and actions)
@@ -82,7 +80,6 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
-  color: #fff;
   padding: 5px;
   font-size: 18px;
   font-weight: bold;
@@ -97,9 +94,23 @@ export const ChatMessages = styled.div`
   padding: 10px;
   box-sizing: border-box;
   margin-bottom: 10px;
-  border-radius: 20px;
+  // border-radius: 20px;
   box-sizing: border-box;
   width: 100%;
+
+  /* Scrollbar styling */
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #F4DB4B;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #F4DB4B;
+  }
   @media (max-width: 768px) {
     min-height: 80%;
   }
@@ -111,7 +122,7 @@ export const Message = styled.div`
   align-self: ${(props) => (props.isSender ? "flex-end" : "flex-start")};
   flex-direction: column;
   align-items: ${(props) => (props.isSender ? "flex-end" : "flex-start")};
-  background-color: ${(props) => (props.isSender ? "#F2F6F9" : "#7B70EE")};
+  background-color: ${(props) => (props.isSender ? "#F2F6F9" : "#7e7aa3")};
   color: ${(props) => (props.isSender ? "#000" : "#fff")};
   padding: 3px 15px;
   min-width: 30%;
@@ -146,12 +157,11 @@ export const Input = styled.input`
 
 // Send button styling
 export const Button = styled.button`
-  background-color: #6d6de7;
+  background-color: #7e7aa3;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 15px;
   border-radius: 20px;
-  margin-left: 10px;
   cursor: pointer;
   font-size: 16px;
   transition: all 0.2s ease;
