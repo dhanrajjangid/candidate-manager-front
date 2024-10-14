@@ -58,6 +58,7 @@ export const UserAvatar = styled.img`
 export const UserName = styled.div`
   font-size: 16px;
   font-weight: bold;
+  text-transform: capitalize;
   color: #333;
 `;
 
