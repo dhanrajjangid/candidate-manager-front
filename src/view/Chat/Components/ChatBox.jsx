@@ -8,6 +8,7 @@ import {
   Input,
   Button,
   Header,
+  UserAvatar,
 } from "./StyledComponents";
 import { postApiData } from "@/services/ApiService";
 import dayjs from "dayjs";
@@ -89,7 +90,16 @@ const ChatBox = ({ currentChatUser, onBack }) => {
             style={{ marginRight: "8px" }}
           />
         </div>
-        <h2 style={{ margin: "auto" }}> {currentChatUser.name}</h2>
+        <div style={{ display: "flex", gap: 10 }}>
+          <h3 style={{ margin: "auto", textTransform: "capitalize" }}>
+            {currentChatUser.name}
+          </h3>
+          <UserAvatar
+            src={
+              "https://t3.ftcdn.net/jpg/08/60/86/66/240_F_860866611_HT8uVSub4ot8CHxxo74kUubGH0Rz7MBp.jpg"
+            }
+          />
+        </div>
       </Header>
       <ChatMessages>
         {messages
@@ -120,9 +130,14 @@ const ChatBox = ({ currentChatUser, onBack }) => {
 
             acc.push(
               <>
-                <Message key={index} isSender={(msg.senderId || msg.sender) === player_id}>
-                  <span style={{ wordBreak: "break-all" }}>{msg.text || msg.message}</span>
-                  <span style={{ fontSize: "10px" }}>
+                <Message
+                  key={index}
+                  isSender={(msg.senderId || msg.sender) === player_id}
+                >
+                  <span style={{ wordBreak: "break-all" }}>
+                    {msg.text || msg.message}
+                  </span>
+                  <span style={{ fontSize: "10px", alignSelf: "flex-end" }}>
                     {messageDate?.format("HH:mm")} {/* Formatted time */}
                   </span>
                 </Message>

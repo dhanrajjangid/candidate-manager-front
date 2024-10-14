@@ -5,7 +5,6 @@ import {
   UserItem,
   UserAvatar,
   UserName,
-  OnlineIndicator,
 } from "./StyledComponents";
 
 const UserList = ({ users, selectUser }) => {
@@ -27,7 +26,6 @@ const UserList = ({ users, selectUser }) => {
                 />
                 <div>
                   <UserName>{user.name}</UserName>
-                  {user.isOnline && <OnlineIndicator />}
                 </div>
               </UserItem>
             )}
